@@ -18,7 +18,7 @@ function ModalMovie(props) {
     }
 
     const result = await axios.post(serverUrl,obj);
-    console.log(result);
+    console.log(result.data);
     // props.handleclose();
   };
 
@@ -47,7 +47,7 @@ function ModalMovie(props) {
             </Form.Group>
            
             <Form.Group>
-            <Button type="submit">Add to Favorite</Button>
+            <Button type="submit" onClick={props.handleClose}>Add to Favorite</Button>
             </Form.Group>
           </Form>
 
