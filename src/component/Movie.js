@@ -31,8 +31,8 @@ function Movie(props) {
             <Card.Body>
               <Card.Title><h3>{props.movieData.title}</h3></Card.Title>
               <Card.Text>
-               <h5>{props.movieData.release_date}</h5>
-               <h5>{props.movieData.overview}</h5>
+               <p>{props.movieData.release_date}</p>
+               <p>{props.movieData.overview}</p>
               </Card.Text>
               <Button variant="primary" onClick={() => {handelShowModal(props.movieData)} }>Add to the favorite list</Button>{' '}
             </Card.Body>
