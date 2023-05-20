@@ -3,12 +3,13 @@ import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
 import axios from 'axios';
+import { useState } from "react";
 
 function ModalMovie(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const serverUrl ='http://localhost:5000/addMovie';
+    const serverUrl =`${process.env.REACT_APP_SERVER_URL}addMovie`;
     const obj = {
       title: props.item.title,
       poster_path: props.item.poster_path,
@@ -19,7 +20,7 @@ function ModalMovie(props) {
 
     const result = await axios.post(serverUrl,obj);
     console.log(result.data);
-    // props.handleclose();
+  
   };
 
 
@@ -30,7 +31,7 @@ function ModalMovie(props) {
           <Modal.Title>{props.item.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${props.item.poster_path}`} rounded width="50%"   />
+          <Image src={`${process.env.REACT_APP_IMEGE_URL}${props.item.poster_path}`} rounded width="50%"   />
 
           <h6>{props.item.release_date}</h6>
           <h6>{props.item.overview}</h6>
@@ -62,6 +63,7 @@ function ModalMovie(props) {
           </Button> */}
         </Modal.Footer>
       </Modal>
+
     </>
   );
 }
